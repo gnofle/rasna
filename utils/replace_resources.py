@@ -39,7 +39,7 @@ def main():
     """CLI entrypoint"""
     if len(sys.argv) != 4:
         print(
-            "Usage: python3 replace_resources.py <helium_resources.txt> " \
+            "Usage: python3 replace_resources.py <rasna_resources.txt> " \
             "<resources_dir> <chromium_src_dir>"
         )
         sys.exit(1)
