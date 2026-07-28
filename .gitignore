@@ -22,3 +22,6 @@ patches_backup_full/
 patches_backup_full_prefs/
 patches_backup_change-chromium-branding.patch
 resources/branding_backup/
+
+# File di backup locali (.bak)
+*.bak
