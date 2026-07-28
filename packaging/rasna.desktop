@@ -1,0 +1,17 @@
+[Desktop Entry]
+Version=1.0
+Name=Rasna
+GenericName=Web Browser
+Comment=Browser basato su Helium/Chromium, orientato alla privacy
+Exec=rasna %U
+Terminal=false
+Icon=rasna
+Type=Application
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml+xml;x-scheme-handler/http;x-scheme-handler/https;
+StartupWMClass=rasna
+Actions=NewWindow;
+
+[Desktop Action NewWindow]
+Name=Nuova finestra
+Exec=rasna --new-window
