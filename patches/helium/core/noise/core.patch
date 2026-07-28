@@ -1,5 +1,5 @@
 # Some files in this patch are sourced from Chromium. They were
-# heavily modified to fit Helium's needs.
+# heavily modified to fit Rasna's needs.
 #
 # Chromium's license header is maintained wherever applicable to
 # respect the original authorship of code.
@@ -49,11 +49,11 @@
 +++ b/chrome/browser/helium_flag_entries.h
 @@ -19,4 +19,8 @@
       "Disables TLS Encrypted Client Hello. Not recommended unless you live in an area with heavy Internet"
-      " censorship and ECH prevents websites from loading. Helium flag.",
+      " censorship and ECH prevents websites from loading. Rasna flag.",
       kOsAll, SINGLE_VALUE_TYPE(helium::kDisableEchCommandLine)},
 +    {helium::kHeliumNoiseCommandLine,
-+     "Helium Noise",
-+     "Helium's anti-fingerprinting functionality. Adds insignificant noise to various features to deceive fingerprinting scripts. Enabled by default, must be enabled for other anti-fingerprinting features to work. Helium flag.",
++     "Rasna Noise",
++     "Rasna's anti-fingerprinting functionality. Adds insignificant noise to various features to deceive fingerprinting scripts. Enabled by default, must be enabled for other anti-fingerprinting features to work. Rasna flag.",
 +     kOsAll, FEATURE_VALUE_TYPE(blink::features::kHeliumNoise)},
  #endif  /* CHROME_BROWSER_HELIUM_FLAG_ENTRIES_H_ */
 --- a/third_party/blink/common/features.cc
@@ -62,7 +62,7 @@
  // `RuntimeEnabledFeatures)`, they should still be ordered in this section based
  // on the identifier name of the generated feature.
  
-+// Helium Noise; required for fingerprinting protection features.
++// Rasna Noise; required for fingerprinting protection features.
 +BASE_FEATURE(kHeliumNoise,
 +             base::FEATURE_ENABLED_BY_DEFAULT);
 +
@@ -83,7 +83,7 @@
 --- /dev/null
 +++ b/content/browser/helium_noise/noise_token_data.cc
 @@ -0,0 +1,106 @@
-+// Copyright 2026 The Helium Authors
++// Copyright 2026 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +// -----------------------------------------------------------------------
@@ -192,7 +192,7 @@
 --- /dev/null
 +++ b/content/browser/helium_noise/noise_token_data.h
 @@ -0,0 +1,53 @@
-+// Copyright 2026 The Helium Authors
++// Copyright 2026 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +// -----------------------------------------------------------------------
@@ -259,7 +259,7 @@
 --- /dev/null
 +++ b/third_party/blink/renderer/core/helium_noise/helium_noise_hash.cc
 @@ -0,0 +1,47 @@
-+// Copyright 2026 The Helium Authors
++// Copyright 2026 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +// -----------------------------------------------------------------------
@@ -309,7 +309,7 @@
 --- /dev/null
 +++ b/third_party/blink/renderer/core/helium_noise/helium_noise_hash.h
 @@ -0,0 +1,43 @@
-+// Copyright 2026 The Helium Authors
++// Copyright 2026 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +// -----------------------------------------------------------------------
@@ -362,7 +362,7 @@
 --- /dev/null
 +++ b/third_party/blink/renderer/core/helium_noise/build.gni
 @@ -0,0 +1,8 @@
-+# Copyright 2026 The Helium Authors
++# Copyright 2026 The Rasna Authors
 +# You can use, redistribute, and/or modify this source code under
 +# the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -394,7 +394,7 @@
 --- /dev/null
 +++ b/third_party/blink/public/common/helium_noise/noise_token.h
 @@ -0,0 +1,52 @@
-+// Copyright 2026 The Helium Authors
++// Copyright 2026 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +// -----------------------------------------------------------------------
@@ -449,7 +449,7 @@
 --- /dev/null
 +++ b/third_party/blink/public/mojom/helium_noise/noise_token.mojom
 @@ -0,0 +1,16 @@
-+// Copyright 2026 The Helium Authors
++// Copyright 2026 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -468,7 +468,7 @@
 --- /dev/null
 +++ b/third_party/blink/public/common/helium_noise/noise_token_mojom_traits.h
 @@ -0,0 +1,66 @@
-+// Copyright 2026 The Helium Authors
++// Copyright 2026 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +// -----------------------------------------------------------------------
@@ -548,7 +548,7 @@
 --- /dev/null
 +++ b/third_party/blink/public/mojom/helium_noise/BUILD.gn
 @@ -0,0 +1,40 @@
-+# Copyright 2026 The Helium Authors
++# Copyright 2026 The Rasna Authors
 +# You can use, redistribute, and/or modify this source code under
 +# the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -1236,7 +1236,7 @@
  inline constexpr char kImportDialogExtensions[] =
      "import_dialog_extensions";
  
-+// Whether Helium Noise is enabled globally.
++// Whether Rasna Noise is enabled globally.
 +inline constexpr char kHeliumNoiseEnabled[] = "helium.noise.enabled";
 +
  // Boolean indicating whether clearing window.name when the navigation is
@@ -1267,7 +1267,7 @@
 --- /dev/null
 +++ b/chrome/browser/helium_noise/helium_noise_settings.cc
 @@ -0,0 +1,117 @@
-+// Copyright 2026 The Helium Authors
++// Copyright 2026 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -1387,7 +1387,7 @@
 --- /dev/null
 +++ b/chrome/browser/helium_noise/helium_noise_settings.h
 @@ -0,0 +1,38 @@
-+// Copyright 2026 The Helium Authors
++// Copyright 2026 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -1475,7 +1475,7 @@
    // - BLOCK: Skip the prompt and block adding sub apps.
    SUB_APPS_WITHOUT_PROMPTS,
 +
-+  // Whether Helium Noise is enabled for a top-level origin.
++  // Whether Rasna Noise is enabled for a top-level origin.
 +  HELIUM_NOISE,
  };
  // LINT.ThenChange(//components/content_settings/core/browser/content_settings_uma_util.cc:kHistogramValue)
@@ -1525,7 +1525,7 @@
    <int value="143" label="Local network access - Local"/>
    <int value="144" label="Local network access - Loopback"/>
    <int value="145" label="Add Sub Apps without prompts"/>
-+  <int value="146" label="Helium Noise"/>
++  <int value="146" label="Rasna Noise"/>
  </enum>
  
  <!-- LINT.ThenChange(//components/content_settings/core/browser/content_settings_uma_util.cc:kHistogramValue) -->

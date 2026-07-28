@@ -1,5 +1,5 @@
 # Some files in this patch are sourced from Chromium. They were
-# heavily modified to fit Helium's needs.
+# heavily modified to fit Rasna's needs.
 #
 # Chromium's license header is maintained wherever applicable to 
 # respect the original authorship of code.
@@ -47,12 +47,12 @@
 --- a/chrome/browser/helium_flag_entries.h
 +++ b/chrome/browser/helium_flag_entries.h
 @@ -23,4 +23,8 @@
-      "Helium Noise",
-      "Helium's anti-fingerprinting functionality. Adds insignificant noise to various features to deceive fingerprinting scripts. Enabled by default, must be enabled for other anti-fingerprinting features to work. Helium flag.",
+      "Rasna Noise",
+      "Rasna's anti-fingerprinting functionality. Adds insignificant noise to various features to deceive fingerprinting scripts. Enabled by default, must be enabled for other anti-fingerprinting features to work. Rasna flag.",
       kOsAll, FEATURE_VALUE_TYPE(blink::features::kHeliumNoise)},
 +    {helium::kHeliumNoiseCanvasCommandLine,
-+     "[Helium Noise] Canvas pixel noising",
-+     "Adds insignificant noise to canvas pixels during readback to deceive canvas-based fingerprinting. Helium flag.",
++     "[Rasna Noise] Canvas pixel noising",
++     "Adds insignificant noise to canvas pixels during readback to deceive canvas-based fingerprinting. Rasna flag.",
 +     kOsAll, FEATURE_VALUE_TYPE(blink::features::kHeliumNoiseCanvas)},
  #endif  /* CHROME_BROWSER_HELIUM_FLAG_ENTRIES_H_ */
 --- a/third_party/blink/common/features.cc
@@ -81,7 +81,7 @@
 --- /dev/null
 +++ b/third_party/blink/renderer/core/helium_noise/canvas_noising_helper.cc
 @@ -0,0 +1,635 @@
-+// Copyright 2026 The Helium Authors
++// Copyright 2026 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +// -----------------------------------------------------------------------
@@ -719,7 +719,7 @@
 --- /dev/null
 +++ b/third_party/blink/renderer/core/helium_noise/canvas_noising_helper.h
 @@ -0,0 +1,40 @@
-+// Copyright 2026 The Helium Authors
++// Copyright 2026 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +// -----------------------------------------------------------------------

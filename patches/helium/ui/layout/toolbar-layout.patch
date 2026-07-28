@@ -233,7 +233,7 @@
    // Logic that must be done on initialization and then on layout.
    void LayoutCommon();
  
-+  // Returns whether the Helium layout is Compact.
++  // Returns whether the Rasna layout is Compact.
 +  bool IsCompactLayout() const;
 +
    // AppMenuIconController::Delegate:

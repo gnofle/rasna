@@ -24,7 +24,7 @@
 --- /dev/null
 +++ b/chrome/browser/ui/browser_shortcuts/browser_shortcut_prefs.h
 @@ -0,0 +1,19 @@
-+// Copyright 2026 The Helium Authors
++// Copyright 2026 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -46,7 +46,7 @@
 --- /dev/null
 +++ b/chrome/browser/ui/browser_shortcuts/browser_shortcut_prefs.cc
 @@ -0,0 +1,15 @@
-+// Copyright 2026 The Helium Authors
++// Copyright 2026 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -64,7 +64,7 @@
 --- /dev/null
 +++ b/chrome/browser/ui/browser_shortcuts/browser_shortcut_metadata.h
 @@ -0,0 +1,38 @@
-+// Copyright 2026 The Helium Authors
++// Copyright 2026 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -105,7 +105,7 @@
 --- /dev/null
 +++ b/chrome/browser/ui/browser_shortcuts/browser_shortcut_metadata.cc
 @@ -0,0 +1,260 @@
-+// Copyright 2026 The Helium Authors
++// Copyright 2026 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -368,7 +368,7 @@
 --- /dev/null
 +++ b/chrome/browser/ui/browser_shortcuts/browser_shortcut_serialization.cc
 @@ -0,0 +1,334 @@
-+// Copyright 2026 The Helium Authors
++// Copyright 2026 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -705,7 +705,7 @@
 --- /dev/null
 +++ b/chrome/browser/ui/browser_shortcuts/browser_shortcut_serialization.h
 @@ -0,0 +1,29 @@
-+// Copyright 2026 The Helium Authors
++// Copyright 2026 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -737,7 +737,7 @@
 --- /dev/null
 +++ b/chrome/browser/ui/browser_shortcuts/browser_shortcut_service.cc
 @@ -0,0 +1,586 @@
-+// Copyright 2026 The Helium Authors
++// Copyright 2026 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -1326,7 +1326,7 @@
 --- /dev/null
 +++ b/chrome/browser/ui/browser_shortcuts/browser_shortcut_service.h
 @@ -0,0 +1,132 @@
-+// Copyright 2026 The Helium Authors
++// Copyright 2026 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -1461,7 +1461,7 @@
 --- /dev/null
 +++ b/chrome/browser/ui/browser_shortcuts/browser_shortcut_service_factory.cc
 @@ -0,0 +1,46 @@
-+// Copyright 2026 The Helium Authors
++// Copyright 2026 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -1510,7 +1510,7 @@
 --- /dev/null
 +++ b/chrome/browser/ui/browser_shortcuts/browser_shortcut_service_factory.h
 @@ -0,0 +1,40 @@
-+// Copyright 2026 The Helium Authors
++// Copyright 2026 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -1775,7 +1775,7 @@
 --- /dev/null
 +++ b/chrome/browser/ui/browser_shortcuts/browser_shortcut_platform_mac.h
 @@ -0,0 +1,29 @@
-+// Copyright 2026 The Helium Authors
++// Copyright 2026 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -1807,7 +1807,7 @@
 --- /dev/null
 +++ b/chrome/browser/ui/browser_shortcuts/browser_shortcut_platform_mac.mm
 @@ -0,0 +1,265 @@
-+// Copyright 2026 The Helium Authors
++// Copyright 2026 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -1908,7 +1908,7 @@
 +
 +bool IsDynamicCloseCommand(int command_id) {
 +  // AppController swaps Cmd+W/Cmd+Shift+W between Close Tab and Close Window at
-+  // runtime based on the active window. Helium can expose these commands for
++  // runtime based on the active window. Rasna can expose these commands for
 +  // additional shortcuts, but should not rewrite their menu-owned defaults.
 +  return command_id == IDC_CLOSE_TAB || command_id == IDC_CLOSE_WINDOW;
 +}

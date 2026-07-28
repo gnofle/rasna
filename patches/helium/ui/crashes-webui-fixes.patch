@@ -161,7 +161,7 @@
        <!-- chrome://crashes strings -->
        <message name="IDS_CRASH_DISABLED_MESSAGE" desc="The explanatory message for chrome://crashes when crash reporting is disabled">
 -        Crash reporting is not available in Chromium.
-+        Crash reporting is disabled in Helium settings or by policy.
++        Crash reporting is disabled in Rasna settings or by policy.
        </message>
  
        <!-- Version UI -->
@@ -173,7 +173,7 @@
  
 -  <message name="IDS_CRASH_BUG_LINK_LABEL" desc="Link text for filing a crash bug on chrome://crashes">
 -    Provide additional details
-+  <message name="IDS_CRASH_BUG_LINK_LABEL" desc="Link text for creating an issue with additional details in Helium's GitHub repo">
++  <message name="IDS_CRASH_BUG_LINK_LABEL" desc="Link text for creating an issue with additional details in Rasna's GitHub repo">
 +    Create an issue with details
    </message>
    <message name="IDS_CRASH_NO_CRASHES_MESSAGE" desc="The explanatory message for chrome://crashes when there are no crashes">

@@ -6,7 +6,7 @@
      case DISTANCE_INFOBAR_HEIGHT:
 -      // Spec says height of button should be 36dp, vertical padding on both
 -      // top and bottom should be 8dp.
-+      // Helium uses compact vertical padding around the infobar controls.
++      // Rasna uses compact vertical padding around the infobar controls.
        // The new refreshed button height is 20 + (2 * 6) = 32dp.
 -      // Therefore, the total infobar height is 32dp + 2 * 12.
 -      return 32 + 2 * 12;
@@ -260,7 +260,7 @@
    switch (layout_data_->window_state) {
 @@ -198,7 +200,7 @@ BrowserViewTabbedLayoutImpl::CalculateSe
      case WindowState::kMaximized: {
-       // Side panel shadow overlay is disabled in Helium.
+       // Side panel shadow overlay is disabled in Rasna.
        info.shadow_box = false;
 -      const bool suppress_separator = false;
 +      const bool suppress_separator = infobar_attached_to_rounded_frame;

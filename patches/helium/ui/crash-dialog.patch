@@ -43,14 +43,14 @@
        <message name="IDS_SAD_TAB_RELOAD_LABEL" desc="Button label in the sad tab page for reloading a page." formatter_data="android_java">
          Reload
        </message>
-+      <message name="IDS_HELIUM_CRASH_REPORTING_DIALOG_TITLE" desc="Title of the dialog asking whether to send one or more Helium crash reports. The report count is shown for multiple reports. [ICU Syntax]">
++      <message name="IDS_HELIUM_CRASH_REPORTING_DIALOG_TITLE" desc="Title of the dialog asking whether to send one or more Rasna crash reports. The report count is shown for multiple reports. [ICU Syntax]">
 +        {COUNT, plural, =1 {Would you like to send a crash report?} other {Would you like to send # crash reports?}}
 +      </message>
-+      <message name="IDS_HELIUM_CRASH_REPORTING_DIALOG_DESCRIPTION" desc="Introductory paragraph shown when one or more Helium crash reports are available.">
-+        Helium closed unexpectedly. A crash report could help us fix the issue you ran into and prevent it from happening again.
++      <message name="IDS_HELIUM_CRASH_REPORTING_DIALOG_DESCRIPTION" desc="Introductory paragraph shown when one or more Rasna crash reports are available.">
++        Rasna closed unexpectedly. A crash report could help us fix the issue you ran into and prevent it from happening again.
 +      </message>
-+      <message name="IDS_HELIUM_CRASH_REPORTING_DIALOG_PRIVACY" desc="Paragraph warning that a crash report may contain sensitive information from Helium's memory.">
-+        A crash report may incidentally include some sensitive data present in Helium's memory at the time of crash.
++      <message name="IDS_HELIUM_CRASH_REPORTING_DIALOG_PRIVACY" desc="Paragraph warning that a crash report may contain sensitive information from Rasna's memory.">
++        A crash report may incidentally include some sensitive data present in Rasna's memory at the time of crash.
 +      </message>
 +      <message name="IDS_HELIUM_CRASH_REPORTING_DIALOG_OPTIONAL" desc="Paragraph explaining that no crash report has been sent yet and that sending reports is optional.">
 +        Nothing has been sent yet. Sending a crash report is optional.
@@ -71,7 +71,7 @@
 --- /dev/null
 +++ b/chrome/browser/ui/startup/helium_crash_dialog_controller.cc
 @@ -0,0 +1,163 @@
-+// Copyright 2026 The Helium Authors
++// Copyright 2026 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -237,7 +237,7 @@
 --- /dev/null
 +++ b/chrome/browser/ui/startup/helium_crash_dialog_controller.h
 @@ -0,0 +1,12 @@
-+// Copyright 2026 The Helium Authors
++// Copyright 2026 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +

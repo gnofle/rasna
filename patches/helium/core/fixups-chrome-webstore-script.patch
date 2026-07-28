@@ -24,7 +24,7 @@
 --- /dev/null
 +++ b/components/extstore_fixups/chrome-webstore.js
 @@ -0,0 +1,74 @@
-+// Copyright 2025 The Helium Authors
++// Copyright 2025 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -50,7 +50,7 @@
 +        return false;
 +      }
 +
-+      el.nodeValue = el.nodeValue.replace(/\b(Google\s)?Chrome\b/, 'Helium');
++      el.nodeValue = el.nodeValue.replace(/\b(Google\s)?Chrome\b/, 'Rasna');
 +      return true;
 +    } else if (el.childNodes) {
 +      for (const node of el.childNodes) {

@@ -71,7 +71,7 @@
 --- /dev/null
 +++ b/components/policy/core/common/helium_opinionated_policy_provider.cc
 @@ -0,0 +1,32 @@
-+// Copyright 2025 The Helium Authors
++// Copyright 2025 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -106,7 +106,7 @@
 --- /dev/null
 +++ b/components/policy/core/common/helium_opinionated_policy_provider.h
 @@ -0,0 +1,25 @@
-+// Copyright 2025 The Helium Authors
++// Copyright 2025 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -147,7 +147,7 @@
    // policy. This source should be kept as highest priority source.
    POLICY_SOURCE_RESTRICTED_MANAGED_GUEST_SESSION_OVERRIDE,
  
-+  // Helium opinionated policies
++  // Rasna opinionated policies
 +  POLICY_SOURCE_HOP,
 +
    // Number of source types. Has to be the last element.
@@ -211,8 +211,8 @@
    <message name="IDS_POLICY_SOURCE_RESTRICTED_MANAGED_GUEST_SESSION_OVERRIDE" desc="Indicates that the policy originates from the restricted managed guest session override.">
      Restricted managed guest session override
    </message>
-+  <message name="IDS_POLICY_SOURCE_HOP" desc="Indicates that the policy originates from Helium defaults.">
-+    Helium defaults
++  <message name="IDS_POLICY_SOURCE_HOP" desc="Indicates that the policy originates from Rasna defaults.">
++    Rasna defaults
 +  </message>
    <message name="IDS_POLICY_SOURCE_ACTIVE_DIRECTORY" desc="Indicates that the policy originates from a local server, e.g. Samba or Active Directory.">
      <ph name="MICROSOFT_ACTIVE_DIRECTORY">Local Server</ph>

@@ -4,7 +4,7 @@
      // AboutFlagsHistogramTest unit test to verify this process).
  };
  
-+// Flags that either break Helium functionality or are not relevant to Helium
++// Flags that either break Rasna functionality or are not relevant to Rasna
 +constexpr auto kExcludedFlags = base::MakeFixedFlatSet<std::string_view>({
 +  // Misc UI features
 +#if BUILDFLAG(IS_WIN)
@@ -20,7 +20,7 @@
 +  "first-run-desktop-revamp",
 +  "horizontal-tab-strip-combo-button",
 +
-+  // Misc features not relevant to Helium
++  // Misc features not relevant to Rasna
 +  "extensions-menu-access-control",
 +  "extensions-collapse-main-menu",
 +  "rounded-icons",

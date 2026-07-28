@@ -1,14 +1,14 @@
 --- a/chrome/app/settings_strings.grdp
 +++ b/chrome/app/settings_strings.grdp
 @@ -1718,6 +1718,21 @@
-     <message name="IDS_SETTINGS_HELIUM_SERVICES_DESCRIPTION" desc="Description of the controls available on the Helium services settings page">
-       Manage what Helium services are allowed in your browser
+     <message name="IDS_SETTINGS_HELIUM_SERVICES_DESCRIPTION" desc="Description of the controls available on the Rasna services settings page">
+       Manage what Rasna services are allowed in your browser
      </message>
 +    <message name="IDS_SETTINGS_HELIUM_CRASH_REPORTING_TITLE" desc="Title of the setting that controls crash reporting">
 +      Crash reporting
 +    </message>
 +    <message name="IDS_SETTINGS_HELIUM_CRASH_REPORTING_DESCRIPTION" desc="Description of the setting that controls crash reporting">
-+      Choose whether Helium can ask to send crash reports or send them automatically. Disabling reports will delete all pending reports.
++      Choose whether Rasna can ask to send crash reports or send them automatically. Disabling reports will delete all pending reports.
 +    </message>
 +    <message name="IDS_SETTINGS_HELIUM_CRASH_REPORTING_DISABLED" desc="Crash reporting option that disables prompts and submissions">
 +      Disabled
@@ -19,8 +19,8 @@
 +    <message name="IDS_SETTINGS_HELIUM_CRASH_REPORTING_AUTOMATIC" desc="Crash reporting option that automatically submits reports">
 +      Send automatically
 +    </message>
-     <message name="IDS_SETTINGS_HELIUM_SCHEMA_NOTICE_TITLE" desc="Title of the alert shown when Helium services have a change in behavior">
-       Updates to Helium services:
+     <message name="IDS_SETTINGS_HELIUM_SCHEMA_NOTICE_TITLE" desc="Title of the alert shown when Rasna services have a change in behavior">
+       Updates to Rasna services:
      </message>
 --- a/chrome/browser/ui/webui/settings/settings_localized_strings_provider.cc
 +++ b/chrome/browser/ui/webui/settings/settings_localized_strings_provider.cc
@@ -183,7 +183,7 @@
 --- /dev/null
 +++ b/chrome/browser/ui/webui/settings/helium_crash_reporting_handler.cc
 @@ -0,0 +1,83 @@
-+// Copyright 2026 The Helium Authors
++// Copyright 2026 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -269,7 +269,7 @@
 --- /dev/null
 +++ b/chrome/browser/ui/webui/settings/helium_crash_reporting_handler.h
 @@ -0,0 +1,39 @@
-+// Copyright 2026 The Helium Authors
++// Copyright 2026 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +

@@ -13,12 +13,12 @@
 +++ b/chrome/browser/helium_flag_entries.h
 @@ -14,4 +14,9 @@
      {helium::kUpdateServerUrlCommandLine, "Update server URL",
-      "Overrides the default URL for fetching updates. Should be used only for testing. Helium flag.", kOsDesktop,
+      "Overrides the default URL for fetching updates. Should be used only for testing. Rasna flag.", kOsDesktop,
       STRING_VALUE_TYPE(helium::kUpdateServerUrlCommandLine, "")},
 +    {helium::kDisableEchCommandLine,
 +     "Disable ECH (Encrypted Client Hello)",
 +     "Disables TLS Encrypted Client Hello. Not recommended unless you live in an area with heavy Internet"
-+     " censorship and ECH prevents websites from loading. Helium flag.",
++     " censorship and ECH prevents websites from loading. Rasna flag.",
 +     kOsAll, SINGLE_VALUE_TYPE(helium::kDisableEchCommandLine)},
  #endif  /* CHROME_BROWSER_HELIUM_FLAG_ENTRIES_H_ */
 --- a/chrome/browser/ssl/ssl_config_service_manager.cc

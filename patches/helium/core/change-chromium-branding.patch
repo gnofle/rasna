@@ -9,17 +9,17 @@
 -PRODUCT_INSTALLER_SHORTNAME=Chromium Installer
 -COPYRIGHT=Copyright @LASTCHANGE_YEAR@ The Chromium Authors. All rights reserved.
 -MAC_BUNDLE_ID=org.chromium.Chromium
-+COMPANY_FULLNAME=The Helium Authors
-+COMPANY_SHORTNAME=The Helium Authors
-+PRODUCT_FULLNAME=Helium
-+PRODUCT_SHORTNAME=Helium
-+PRODUCT_INSTALLER_FULLNAME=Helium Installer
-+PRODUCT_INSTALLER_SHORTNAME=Helium Installer
-+COPYRIGHT=Copyright @LASTCHANGE_YEAR@ The Helium Authors. All rights reserved.
-+MAC_BUNDLE_ID=net.imput.helium
++COMPANY_FULLNAME=The Rasna Authors
++COMPANY_SHORTNAME=The Rasna Authors
++PRODUCT_FULLNAME=Rasna
++PRODUCT_SHORTNAME=Rasna
++PRODUCT_INSTALLER_FULLNAME=Rasna Installer
++PRODUCT_INSTALLER_SHORTNAME=Rasna Installer
++COPYRIGHT=Copyright @LASTCHANGE_YEAR@ The Rasna Authors. All rights reserved.
++MAC_BUNDLE_ID=tech.gnofle.rasna
  MAC_CREATOR_CODE=Cr24
 -MAC_TEAM_ID=
-+MAC_TEAM_ID=S4Q33XPHB4
++MAC_TEAM_ID=YOUR_TEAM_ID_OR_LEAVE_EMPTY
 --- a/chrome/app/chrome_crash_reporter_client.cc
 +++ b/chrome/app/chrome_crash_reporter_client.cc
 @@ -129,25 +129,7 @@ bool ChromeCrashReporterClient::GetCrash
@@ -45,7 +45,7 @@
 -  NOTREACHED();
 -#endif
 -
-+  product_info->product_name = "Helium";
++  product_info->product_name = "Rasna";
    product_info->version = UpdaterVersion();
    product_info->channel =
        chrome::GetChannelName(chrome::WithExtendedStable(true));

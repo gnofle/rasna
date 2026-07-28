@@ -5,7 +5,7 @@
      (stdout, retval) = _GetOutput([
          VERSION_TOOL, '-f', VERSION_FILE, '-t',
 -        '@MAJOR@.@MINOR@.@BUILD@.@PATCH@'
-+        '@HELIUM_MAJOR@.@HELIUM_MINOR@.@HELIUM_PATCH@.@HELIUM_PLATFORM@'
++        '@RASNA_MAJOR@.@RASNA_MINOR@.@RASNA_PATCH@.@RASNA_PLATFORM@'
      ])
  
      # If the command finished with a non-zero return code, then report the
@@ -24,7 +24,7 @@
  
  #define PRODUCT_NAME "@PRODUCT_FULLNAME@"
  #define PRODUCT_VERSION "@MAJOR@.@MINOR@.@BUILD@.@PATCH@"
-+#define HELIUM_PRODUCT_VERSION "@HELIUM_MAJOR@.@HELIUM_MINOR@.@HELIUM_PATCH@.@HELIUM_PLATFORM@"
++#define RASNA_PRODUCT_VERSION "@RASNA_MAJOR@.@RASNA_MINOR@.@RASNA_PATCH@.@RASNA_PLATFORM@"
  #define LAST_CHANGE "@LASTCHANGE@"
  #define IS_OFFICIAL_BUILD @OFFICIAL_BUILD@
  
@@ -34,8 +34,8 @@
    return PRODUCT_NAME;
  }
  
-+constexpr std::string_view GetHeliumVersionNumber() {
-+  return HELIUM_PRODUCT_VERSION;
++constexpr std::string_view GetRasnaVersionNumber() {
++  return RASNA_PRODUCT_VERSION;
 +}
 +
  // Returns the version number, e.g. "6.0.490.1".
@@ -47,8 +47,8 @@
                                    VersionProcessorVariation());
  
    // Data strings.
-+  html_source->AddString(version_ui::kHeliumVersion,
-+                         version_info::GetHeliumVersionNumber());
++  html_source->AddString(version_ui::kRasnaVersion,
++                         version_info::GetRasnaVersionNumber());
    html_source->AddString(version_ui::kVersion,
                           version_info::GetVersionNumber());
    html_source->AddString(version_ui::kVersionSuffix,
@@ -56,7 +56,7 @@
  std::u16string VersionUI::GetAnnotatedVersionStringForUi() {
    return l10n_util::GetStringFUTF16(
        IDS_SETTINGS_ABOUT_PAGE_BROWSER_VERSION,
-+      {base::UTF8ToUTF16(version_info::GetHeliumVersionNumber()),
++      {base::UTF8ToUTF16(version_info::GetRasnaVersionNumber()),
        base::UTF8ToUTF16(version_info::GetVersionNumber()),
        base::UTF8ToUTF16(GetVersionInformationalSuffix()),
        l10n_util::GetStringUTF16(version_info::IsOfficialBuild()
@@ -74,7 +74,7 @@
  const char kVariationsSeed[] = "variations_seed";
  const char kVariationsSeedName[] = "variations_seed_name";
  const char kVersion[] = "version";
-+const char kHeliumVersion[] = "helium_version";
++const char kRasnaVersion[] = "rasna_version";
  const char kVersionSuffix[] = "version_suffix";
  const char kVersionModifier[] = "version_modifier";
  const char kVersionProcessorVariation[] = "version_processor_variation";
@@ -84,7 +84,7 @@
  extern const char kVariationsSeed[];
  extern const char kVariationsSeedName[];
  extern const char kVersion[];
-+extern const char kHeliumVersion[];
++extern const char kRasnaVersion[];
  extern const char kVersionSuffix[];
  extern const char kVersionModifier[];
  extern const char kVersionProcessorVariation[];
@@ -95,7 +95,7 @@
      <!-- About Page -->
      <message name="IDS_SETTINGS_ABOUT_PAGE_BROWSER_VERSION" desc="The text label describing the version of the browser, example: Version 57.0.2937.0-r123456 (Developer Build) unknown (64-bit). The suffix of the version (eg. '-r123456') exists only in limited cases.)">
 -      Version <ph name="PRODUCT_VERSION">$1<ex>15.0.865.0</ex></ph><ph name="PRODUCT_VERSION_SUFFIX">$2<ex>-r123456</ex></ph>  (<ph name="PRODUCT_CHANNEL">$3<ex>Developer Build</ex></ph>) <ph name="PRODUCT_MODIFIER">$4</ph> <ph name="PRODUCT_VERSION_BITS">$5</ph>
-+      Version <ph name="HELIUM_PRODUCT_VERSION">$1<ex>0.0.0.0</ex></ph> (<ph name="PRODUCT_CHANNEL">$4<ex>Developer Build</ex></ph>, <ph name="CHROMIUM_NAME">$7</ph> <ph name="PRODUCT_VERSION">$2<ex>15.0.865.0</ex></ph><ph name="PRODUCT_VERSION_SUFFIX">$3<ex>-r123456</ex></ph>) <ph name="PRODUCT_MODIFIER">$5</ph> <ph name="PRODUCT_VERSION_BITS">$6</ph>
++      Version <ph name="RASNA_PRODUCT_VERSION">$1<ex>0.0.0.0</ex></ph> (<ph name="PRODUCT_CHANNEL">$4<ex>Developer Build</ex></ph>, <ph name="CHROMIUM_NAME">$7</ph> <ph name="PRODUCT_VERSION">$2<ex>15.0.865.0</ex></ph><ph name="PRODUCT_VERSION_SUFFIX">$3<ex>-r123456</ex></ph>) <ph name="PRODUCT_MODIFIER">$5</ph> <ph name="PRODUCT_VERSION_BITS">$6</ph>
      </message>
      <message name="IDS_SETTINGS_ABOUT_PAGE_LEARN_MORE_UPDATE_ERRORS" desc="The accessibility label for a 'Learn more' link next to an error message about how an update has failed.">
        Learn more about fixing update errors
@@ -105,12 +105,12 @@
        <table id="inner" cellpadding="0" cellspacing="0" border="0">
          <tr><td class="label">$i18n{application_label}</td>
            <td class="version" id="version">
-+            <span id="copy-content-helium">
-+              <span>$i18n{helium_version}</span>
++            <span id="copy-content-rasna">
++              <span>$i18n{rasna_version}</span>
 +              (<span>$i18n{official}</span>)
 +              <span>$i18n{version_processor_variation}</span>
 +            </span>
-+            <button id="copy-to-clipboard-helium" aria-label="$i18n{copy_label}">
++            <button id="copy-to-clipboard-rasna" aria-label="$i18n{copy_label}">
 +              <div id="copy-to-clipboard-icon"></div>
 +            </button>
 +          </td>
@@ -131,9 +131,9 @@
    announceCopy('copy_notice');
  }
  
-+async function copyHeliumVersionToClipboard() {
++async function copyRasnaVersionToClipboard() {
 +  await navigator.clipboard.writeText(
-+      getRequiredElement('copy-content-helium').innerText);
++      getRequiredElement('copy-content-rasna').innerText);
 +  announceCopy('copy_notice');
 +}
 +
@@ -144,8 +144,8 @@
    getRequiredElement('copy-to-clipboard')
        .addEventListener('click', copyVersionToClipboard);
  
-+  getRequiredElement('copy-to-clipboard-helium')
-+      .addEventListener('click', copyHeliumVersionToClipboard);
++  getRequiredElement('copy-to-clipboard-rasna')
++      .addEventListener('click', copyRasnaVersionToClipboard);
 +
    getRequiredElement('copy-variations-to-clipboard')
        .addEventListener('click', copyVariationsToClipboard);
@@ -156,7 +156,7 @@
    vertical-align: bottom;
  }
  
-+#copy-to-clipboard-helium,
++#copy-to-clipboard-rasna,
  #copy-to-clipboard,
  #copy-variations-to-clipboard {
    background-color: var(--background-color);
@@ -167,7 +167,7 @@
  #if !BUILDFLAG(IS_MAC)
    if (command_line.HasSwitch(switches::kProductVersion)) {
 -    UNSAFE_TODO(printf("%s\n", version_info::GetVersionNumber().data()));
-+    UNSAFE_TODO(printf("%s\n", version_info::GetHeliumVersionNumber().data()));
++    UNSAFE_TODO(printf("%s\n", version_info::GetRasnaVersionNumber().data()));
      return true;
    }
  #endif
@@ -178,7 +178,7 @@
 -        version_info::GetVersionNumber().data(),
 -        chrome::GetChannelName(chrome::WithExtendedStable(true)).c_str()));
 +        "%s %s (Chromium %s)\n", version_info::GetProductName().data(),
-+        version_info::GetHeliumVersionNumber().data(),
++        version_info::GetRasnaVersionNumber().data(),
 +        version_info::GetVersionNumber().data()));
      return true;
    }
@@ -196,9 +196,9 @@
 @@ -130,7 +131,7 @@ bool ChromeCrashReporterClient::GetCrash
  void ChromeCrashReporterClient::GetProductInfo(ProductInfo* product_info) {
    CHECK(product_info);
-   product_info->product_name = "Helium";
+   product_info->product_name = "Rasna";
 -  product_info->version = UpdaterVersion();
-+  product_info->version = version_info::GetHeliumVersionNumber();
++  product_info->version = version_info::GetRasnaVersionNumber();
    product_info->channel =
        chrome::GetChannelName(chrome::WithExtendedStable(true));
  }
@@ -217,7 +217,7 @@
        exe_file, &product_name, &version, &special_build, &channel_name);
    (*annotations)["prod"] = base::WideToUTF8(product_name);
 -  (*annotations)["ver"] = base::WideToUTF8(version);
-+  (*annotations)["ver"] = version_info::GetHeliumVersionNumber();
++  (*annotations)["ver"] = version_info::GetRasnaVersionNumber();
  #if BUILDFLAG(GOOGLE_CHROME_BRANDING)
    // Empty means stable.
    const bool allow_empty_channel = true;
@@ -239,7 +239,7 @@
 -          base::apple::ObjCCast<NSString>([base::apple::FrameworkBundle()
 -              objectForInfoDictionaryKey:@"CFBundleShortVersionString"]);
 -      process_annotations["ver"] = base::SysNSStringToUTF8(version);
-+      process_annotations["ver"] = version_info::GetHeliumVersionNumber();
++      process_annotations["ver"] = version_info::GetRasnaVersionNumber();
  
        process_annotations["plat"] = std::string("OS X");
      }  // @autoreleasepool

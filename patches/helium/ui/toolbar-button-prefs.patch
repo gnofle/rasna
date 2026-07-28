@@ -53,7 +53,7 @@
    (*s_allowlist)[::prefs::kSplitViewDragAndDropEnabled] =
        settings_api::PrefType::kBoolean;
  
-+  // Helium toolbar settings.
++  // Rasna toolbar settings.
 +  (*s_allowlist)[::prefs::kShowBackButton] =
 +      settings_api::PrefType::kBoolean;
 +  (*s_allowlist)[::prefs::kShowReloadButton] =

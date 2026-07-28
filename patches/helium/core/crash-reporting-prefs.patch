@@ -129,7 +129,7 @@
 +}  // namespace
 +
 +void SetUploadConsent(bool) {
-+  // Helium manages crash upload consent through SetUploadConsentFromUser(),
++  // Rasna manages crash upload consent through SetUploadConsentFromUser(),
 +  // this function is stubbed out and the callers are ignored.
  }
  
@@ -200,8 +200,8 @@
  // running.
  void SetUploadConsent(bool consent);
  
-+// Enables or disables uploads in response to Helium's explicit user consent.
-+// Unlike SetUploadConsent(), this must only be called from Helium-owned UI.
++// Enables or disables uploads in response to Rasna's explicit user consent.
++// Unlike SetUploadConsent(), this must only be called from Rasna-owned UI.
 +void SetUploadConsentFromUser(bool consent);
 +
  #endif  // !BUILDFLAG(IS_CHROMEOS)
@@ -233,7 +233,7 @@
  
  namespace internal {
  
-+// Applies explicit Helium user consent in the module that owns the Crashpad
++// Applies explicit Rasna user consent in the module that owns the Crashpad
 +// database. On Windows this is invoked through chrome_elf.dll.
 +void SetUploadConsentFromUserImpl(bool consent);
 +
@@ -270,7 +270,7 @@
 --- /dev/null
 +++ b/chrome/browser/crash_upload_list/helium_crash_reporting.cc
 @@ -0,0 +1,149 @@
-+// Copyright 2026 The Helium Authors
++// Copyright 2026 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -422,7 +422,7 @@
 --- /dev/null
 +++ b/chrome/browser/crash_upload_list/helium_crash_reporting.h
 @@ -0,0 +1,39 @@
-+// Copyright 2026 The Helium Authors
++// Copyright 2026 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -540,7 +540,7 @@
  void SetUploadConsent_ExportThunk(bool consent);
  
 +// This function may be invoked across module boundaries to update upload
-+// consent granted explicitly through Helium's crash reporting UI.
++// consent granted explicitly through Rasna's crash reporting UI.
 +void SetUploadConsentFromUser_ExportThunk(bool consent);
 +
  // Returns the current upload consent state.

@@ -81,7 +81,7 @@
 --- /dev/null
 +++ b/extensions/common/manifest_handlers/manifest_url_patcher.cc
 @@ -0,0 +1,37 @@
-+// Copyright 2025 The Helium Authors
++// Copyright 2025 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -121,7 +121,7 @@
 --- /dev/null
 +++ b/extensions/common/manifest_handlers/manifest_url_patcher.h
 @@ -0,0 +1,18 @@
-+// Copyright 2025 The Helium Authors
++// Copyright 2025 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -175,7 +175,7 @@
 --- a/chrome/browser/extensions/api/settings_private/prefs_util.cc
 +++ b/chrome/browser/extensions/api/settings_private/prefs_util.cc
 @@ -415,6 +415,8 @@ const PrefsUtil::TypedPrefMap& PrefsUtil
-   // Helium services page
+   // Rasna services page
    (*s_allowlist)[::prefs::kHeliumServicesEnabled] =
        settings_api::PrefType::kBoolean;
 +  (*s_allowlist)[::prefs::kHeliumExtProxyEnabled] =
@@ -188,8 +188,8 @@
 @@ -227,6 +227,7 @@ void RegisterBrowserUserPrefs(user_prefs
      registry->RegisterIntegerPref(prefs::kHeliumSchemaVersion, 0);
      registry->RegisterBooleanPref(prefs::kHeliumDisableSchemaAlerts, false);
-     registry->RegisterBooleanPref(prefs::kHeliumServicesEnabled, true);
-+    registry->RegisterBooleanPref(prefs::kHeliumExtProxyEnabled, true);
+     registry->RegisterBooleanPref(prefs::kHeliumServicesEnabled, false);
++    registry->RegisterBooleanPref(prefs::kHeliumExtProxyEnabled, false);
      registry->RegisterStringPref(prefs::kHeliumServicesOrigin, "");
      registry->RegisterBooleanPref(prefs::kHeliumDidOnboarding, false);
      registry->RegisterBooleanPref(prefs::kHeliumServicesConsented, false);
@@ -223,17 +223,17 @@
 --- a/chrome/app/settings_strings.grdp
 +++ b/chrome/app/settings_strings.grdp
 @@ -1724,6 +1724,12 @@
-     <message name="IDS_SETTINGS_HELIUM_SERVICES_TOGGLE_DESCRIPTION" desc="Description of the toggle for enabling/disabling of all Helium services">
-       When enabled, Helium will be able to connect to anonymous web services to provide additional functionality. When disabled, additional features will not work.
+     <message name="IDS_SETTINGS_HELIUM_SERVICES_TOGGLE_DESCRIPTION" desc="Description of the toggle for enabling/disabling of all Rasna services">
+       When enabled, Rasna will be able to connect to anonymous web services to provide additional functionality. When disabled, additional features will not work.
      </message>
 +    <message name="IDS_SETTINGS_HELIUM_SERVICES_EXT_PROXY_TOGGLE" desc="Toggle for enabling/disabling of downloading and proxying extensions">
 +      Proxy extension downloads and updates
 +    </message>
 +    <message name="IDS_SETTINGS_HELIUM_SERVICES_EXT_PROXY_TOGGLE_DESCRIPTION" desc="Description of the toggle for enabling/disabling of downloading and proxying extensions">
-+      When enabled, Helium will proxy extension downloads and updates to protect your privacy. When disabled, downloading and updating extensions will not work.
++      When enabled, Rasna will proxy extension downloads and updates to protect your privacy. When disabled, downloading and updating extensions will not work.
 +    </message>
-     <message name="IDS_SETTINGS_HELIUM_SERVICES_OVERRIDE" desc="Text input for overriding the Helium services server">
-       Use your own instance of Helium services
+     <message name="IDS_SETTINGS_HELIUM_SERVICES_OVERRIDE" desc="Text input for overriding the Rasna services server">
+       Use your own instance of Rasna services
      </message>
 --- a/components/helium_services/pref_names.h
 +++ b/components/helium_services/pref_names.h

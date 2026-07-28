@@ -753,7 +753,7 @@
 --- /dev/null
 +++ b/chrome/browser/ui/views/tabs/vertical/vertical_new_tab_button.cc
 @@ -0,0 +1,41 @@
-+// Copyright 2026 The Helium Authors
++// Copyright 2026 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -797,7 +797,7 @@
 --- /dev/null
 +++ b/chrome/browser/ui/views/tabs/vertical/vertical_new_tab_button.h
 @@ -0,0 +1,22 @@
-+// Copyright 2026 The Helium Authors
++// Copyright 2026 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +

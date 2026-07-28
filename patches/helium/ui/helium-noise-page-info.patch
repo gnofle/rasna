@@ -52,7 +52,7 @@
                                 std::optional<url::Origin> requesting_origin,
                                 bool is_one_time);
  
-+  // Marks the current page for a reload prompt after its Helium Noise setting
++  // Marks the current page for a reload prompt after its Rasna Noise setting
 +  // changes. The setting itself is owned by the Chrome-layer Noise helper.
 +  void OnHeliumNoiseSettingChanged();
 +
@@ -65,23 +65,23 @@
      Your organization has blocked this site because it violates a policy.
    </message>
  
-+  <!-- Helium Noise strings -->
++  <!-- Rasna Noise strings -->
 +  <message name="IDS_PAGE_INFO_HELIUM_NOISE_HEADER" desc="The title of the fingerprinting protection row and subpage in Page Info.">
 +    Fingerprinting protection
 +  </message>
 +  <message name="IDS_PAGE_INFO_HELIUM_NOISE_TOOLTIP" desc="Tooltip for the fingerprinting protection row in Page Info.">
 +    Manage fingerprinting protection for this site
 +  </message>
-+  <message name="IDS_PAGE_INFO_HELIUM_NOISE_DESCRIPTION" desc="Explanation of how Helium fingerprinting protection works.">
-+    When fingerprinting protection is enabled, Helium adds noise to certain browser features to make it harder for sites to track and profile you.
++  <message name="IDS_PAGE_INFO_HELIUM_NOISE_DESCRIPTION" desc="Explanation of how Rasna fingerprinting protection works.">
++    When fingerprinting protection is enabled, Rasna adds noise to certain browser features to make it harder for sites to track and profile you.
 +  </message>
-+  <message name="IDS_PAGE_INFO_HELIUM_NOISE_BREAKAGE" desc="Explanation of how disabling Helium's fingerprinting protection may fix privacy-invasive websites, but will reduce user's privacy.">
++  <message name="IDS_PAGE_INFO_HELIUM_NOISE_BREAKAGE" desc="Explanation of how disabling Rasna's fingerprinting protection may fix privacy-invasive websites, but will reduce user's privacy.">
 +    Turning off the protection will reduce your privacy, but may fix site features that require fingerprinting.
 +  </message>
 +  <message name="IDS_PAGE_INFO_HELIUM_NOISE_GLOBALLY_DISABLED" desc="Explanation shown when the site toggle is unavailable because fingerprinting protection is disabled globally.">
-+    Fingerprinting protection is turned off in Helium settings.
++    Fingerprinting protection is turned off in Rasna settings.
 +  </message>
-+  <message name="IDS_PAGE_INFO_HELIUM_NOISE_SETTINGS_BUTTON" desc="A button label that opens Helium's global fingerprinting protection settings page.">
++  <message name="IDS_PAGE_INFO_HELIUM_NOISE_SETTINGS_BUTTON" desc="A button label that opens Rasna's global fingerprinting protection settings page.">
 +    Manage fingerprinting protection
 +  </message>
 +
@@ -91,7 +91,7 @@
 --- /dev/null
 +++ b/chrome/browser/ui/views/page_info/page_info_noise_content_view.cc
 @@ -0,0 +1,160 @@
-+// Copyright 2026 The Helium Authors
++// Copyright 2026 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -254,7 +254,7 @@
 --- /dev/null
 +++ b/chrome/browser/ui/views/page_info/page_info_noise_content_view.h
 @@ -0,0 +1,43 @@
-+// Copyright 2026 The Helium Authors
++// Copyright 2026 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -278,7 +278,7 @@
 +class ToggleButton;
 +}
 +
-+// Content for the Helium Noise subpage in Page Info.
++// Content for the Rasna Noise subpage in Page Info.
 +class PageInfoNoiseContentView : public views::FlexLayoutView,
 +                                 public PageInfoUI {
 + public:
@@ -319,7 +319,7 @@
 --- /dev/null
 +++ b/components/vector_icons/shield_check.icon
 @@ -0,0 +1,52 @@
-+// Copyright 2026 The Helium Authors
++// Copyright 2026 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -374,7 +374,7 @@
 --- /dev/null
 +++ b/components/vector_icons/shield_cross.icon
 @@ -0,0 +1,62 @@
-+// Copyright 2026 The Helium Authors
++// Copyright 2026 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -507,7 +507,7 @@
    // Returns the icon for the secure connection button.
    static const ui::ImageModel GetConnectionSecureIcon();
  
-+  // Returns the Helium Noise icon for the given enabled state.
++  // Returns the Rasna Noise icon for the given enabled state.
 +  static const ui::ImageModel GetNoiseIcon(bool enabled);
 +
    // Returns the icon for a button which opens a subpage within page info.

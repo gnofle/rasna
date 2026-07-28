@@ -6,7 +6,7 @@
    reciprocal_contents = EvaluateTemplate(reciprocal_template, {
 -      'opensource_project': 'ungoogled-chromium',
 -      'opensource_link': 'https://github.com/ungoogled-software/ungoogled-chromium'
-+      'opensource_project': 'Helium',
++      'opensource_project': 'Rasna',
 +      'opensource_link': 'https://github.com/imputnet/helium'
    },
                                           escape=False)

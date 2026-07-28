@@ -26,21 +26,21 @@
        Delete history, cookies, cache, and more
      </message>
 +
-+    <!-- Helium Noise -->
-+    <message name="IDS_SETTINGS_NOISE" desc="Title of the settings page for Helium's fingerprinting protection feature.">
++    <!-- Rasna Noise -->
++    <message name="IDS_SETTINGS_NOISE" desc="Title of the settings page for Rasna's fingerprinting protection feature.">
 +      Fingerprinting protection
 +    </message>
 +    <message name="IDS_SETTINGS_NOISE_LINK_DESCRIPTION" desc="Description of the fingerprinting protection link on the Privacy and security settings page.">
-+      Manage how Helium protects you against fingerprinting
++      Manage how Rasna protects you against fingerprinting
 +    </message>
 +    <message name="IDS_SETTINGS_NOISE_TOGGLE_DESCRIPTION" desc="Description of the global fingerprinting protection toggle.">
 +      Make it harder for sites to fingerprint your browser and device
 +    </message>
-+    <message name="IDS_SETTINGS_NOISE_DESCRIPTION" desc="Description of how Helium protects against browser fingerprinting.">
-+      When fingerprinting protection is enabled, Helium adds noise to certain browser features to make it harder for sites to track and profile you. Each site sees consistent randomized information during your browsing session to reduce the chances of detection.
++    <message name="IDS_SETTINGS_NOISE_DESCRIPTION" desc="Description of how Rasna protects against browser fingerprinting.">
++      When fingerprinting protection is enabled, Rasna adds noise to certain browser features to make it harder for sites to track and profile you. Each site sees consistent randomized information during your browsing session to reduce the chances of detection.
 +    </message>
-+    <message name="IDS_SETTINGS_NOISE_DISCLAIMER" desc="Disclaimer shown below the fingerprinting protection description explaining that Helium makes fingerprint recovery harder but cannot prevent fingerprinting completely.">
-+      Fingerprinting cannot be fully prevented, but Helium's analysis defenses make it harder to recover the original fingerprint.
++    <message name="IDS_SETTINGS_NOISE_DISCLAIMER" desc="Disclaimer shown below the fingerprinting protection description explaining that Rasna makes fingerprint recovery harder but cannot prevent fingerprinting completely.">
++      Fingerprinting cannot be fully prevented, but Rasna's analysis defenses make it harder to recover the original fingerprint.
 +    </message>
 +    <message name="IDS_SETTINGS_NOISE_CUSTOM_DESCRIPTION" desc="General explanation of fingerprinting protection site rules and wildcard behavior.">
 +      When the general fingerprinting protection feature is enabled, sites listed below follow a custom setting. Inserting "[*.]" before a domain name applies it to the entire domain.
@@ -103,7 +103,7 @@
 --- /dev/null
 +++ b/chrome/browser/resources/settings/privacy_page/noise_page.html
 @@ -0,0 +1,38 @@
-+<!-- Copyright 2026 The Helium Authors
++<!-- Copyright 2026 The Rasna Authors
 +     You can use, redistribute, and/or modify this source code under
 +     the terms of the GPL-3.0 license that can be found in the LICENSE file. -->
 +
@@ -144,7 +144,7 @@
 --- /dev/null
 +++ b/chrome/browser/resources/settings/privacy_page/noise_page.ts
 @@ -0,0 +1,51 @@
-+// Copyright 2026 The Helium Authors
++// Copyright 2026 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +

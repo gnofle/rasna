@@ -15,3 +15,10 @@ __pycache__/
 # Ignore generated resources
 /resources/generated
 /devutils/i18n-data
+
+# Backup locali di lavoro (non versionare)
+patches_backup/
+patches_backup_full/
+patches_backup_full_prefs/
+patches_backup_change-chromium-branding.patch
+resources/branding_backup/

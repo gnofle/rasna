@@ -4,41 +4,41 @@
        </message>
      </if>
  
-+    <!-- Helium Services Privacy Settings (helium://settings/privacy/services) -->
-+    <message name="IDS_SETTINGS_HELIUM_SERVICES" desc="Name of the page which controls connectivity to Helium services">
-+      Helium services
++    <!-- Rasna Services Privacy Settings (helium://settings/privacy/services) -->
++    <message name="IDS_SETTINGS_HELIUM_SERVICES" desc="Name of the page which controls connectivity to Rasna services">
++      Rasna services
 +    </message>
-+    <message name="IDS_SETTINGS_HELIUM_SERVICES_DESCRIPTION" desc="Description of the controls available on the Helium services settings page">
-+      Manage what Helium services are allowed in your browser
++    <message name="IDS_SETTINGS_HELIUM_SERVICES_DESCRIPTION" desc="Description of the controls available on the Rasna services settings page">
++      Manage what Rasna services are allowed in your browser
 +    </message>
-+    <message name="IDS_SETTINGS_HELIUM_SCHEMA_NOTICE_TITLE" desc="Title of the alert shown when Helium services have a change in behavior">
-+      Updates to Helium services:
++    <message name="IDS_SETTINGS_HELIUM_SCHEMA_NOTICE_TITLE" desc="Title of the alert shown when Rasna services have a change in behavior">
++      Updates to Rasna services:
 +    </message>
-+    <message name="IDS_SETTINGS_HELIUM_SCHEMA_NOTICE_DESCRIPTION" desc="Description of the alert shown when Helium services have a change in behavior">
++    <message name="IDS_SETTINGS_HELIUM_SCHEMA_NOTICE_DESCRIPTION" desc="Description of the alert shown when Rasna services have a change in behavior">
 +      These changes are not active until you dismiss this notice.
 +    </message>
 +    <message name="IDS_SETTINGS_HELIUM_SCHEMA_IGNORE" desc="Checkbox label to ignore any future services change alerts">
 +      Don't notify me again
 +    </message>
-+    <message name="IDS_SETTINGS_HELIUM_SERVICES_TOGGLE" desc="Global toggle for enabling/disabling of all Helium services">
-+      Allow connecting to Helium services
++    <message name="IDS_SETTINGS_HELIUM_SERVICES_TOGGLE" desc="Global toggle for enabling/disabling of all Rasna services">
++      Allow connecting to Rasna services
 +    </message>
-+    <message name="IDS_SETTINGS_HELIUM_SERVICES_TOGGLE_DESCRIPTION" desc="Description of the toggle for enabling/disabling of all Helium services">
-+      When enabled, Helium will be able to connect to anonymous web services to provide additional functionality. When disabled, additional features will not work.
++    <message name="IDS_SETTINGS_HELIUM_SERVICES_TOGGLE_DESCRIPTION" desc="Description of the toggle for enabling/disabling of all Rasna services">
++      When enabled, Rasna will be able to connect to anonymous web services to provide additional functionality. When disabled, additional features will not work.
 +    </message>
-+    <message name="IDS_SETTINGS_HELIUM_SERVICES_OVERRIDE" desc="Text input for overriding the Helium services server">
-+      Use your own instance of Helium services
++    <message name="IDS_SETTINGS_HELIUM_SERVICES_OVERRIDE" desc="Text input for overriding the Rasna services server">
++      Use your own instance of Rasna services
 +    </message>
-+    <message name="IDS_SETTINGS_HELIUM_SERVICES_OVERRIDE_DESCRIPTION" desc="Description of the text input for overriding the Helium services server">
-+      You can host your own instance of Helium services and use it in your browser instead of the default one. HTTPS only.
++    <message name="IDS_SETTINGS_HELIUM_SERVICES_OVERRIDE_DESCRIPTION" desc="Description of the text input for overriding the Rasna services server">
++      You can host your own instance of Rasna services and use it in your browser instead of the default one. HTTPS only.
 +    </message>
-+    <message name="IDS_SETTINGS_HELIUM_SERVICES_OVERRIDE_DESCRIPTION_WARNING" desc="Warning section of description for overriding the Helium services server">
++    <message name="IDS_SETTINGS_HELIUM_SERVICES_OVERRIDE_DESCRIPTION_WARNING" desc="Warning section of description for overriding the Rasna services server">
 +      Do not use this field unless you know exactly what you are doing. Never paste URLs from other people here, they are trying to steal your data. We are not responsible for any damages caused by using a custom server and will not be able to help you.
 +    </message>
-+    <message name="IDS_SETTINGS_HELIUM_SERVICES_OVERRIDE_ARIA_LABEL" desc="ARIA label of the text input for overriding the Helium services server">
-+      Custom origin URL for Helium services
++    <message name="IDS_SETTINGS_HELIUM_SERVICES_OVERRIDE_ARIA_LABEL" desc="ARIA label of the text input for overriding the Rasna services server">
++      Custom origin URL for Rasna services
 +    </message>
-+    <message name="IDS_SETTINGS_HELIUM_SERVICES_OVERRIDE_INVALID_ORIGIN" desc="Validation error shown when the custom Helium services origin is invalid.">
++    <message name="IDS_SETTINGS_HELIUM_SERVICES_OVERRIDE_INVALID_ORIGIN" desc="Validation error shown when the custom Rasna services origin is invalid.">
 +      Invalid origin
 +    </message>
 +
@@ -274,7 +274,7 @@
 --- /dev/null
 +++ b/chrome/browser/resources/settings/privacy_page/services_page.ts
 @@ -0,0 +1,105 @@
-+// Copyright 2025 The Helium Authors
++// Copyright 2025 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -414,7 +414,7 @@
 +  {
 +    registry->RegisterIntegerPref(prefs::kHeliumSchemaVersion, 0);
 +    registry->RegisterBooleanPref(prefs::kHeliumDisableSchemaAlerts, false);
-+    registry->RegisterBooleanPref(prefs::kHeliumServicesEnabled, true);
++    registry->RegisterBooleanPref(prefs::kHeliumServicesEnabled, false);
 +    registry->RegisterStringPref(prefs::kHeliumServicesOrigin, "");
 +  }
 +
@@ -435,7 +435,7 @@
        settings_api::PrefType::kString;
  #endif
  
-+  // Helium services page
++  // Rasna services page
 +  (*s_allowlist)[::prefs::kHeliumServicesEnabled] =
 +      settings_api::PrefType::kBoolean;
 +  (*s_allowlist)[::prefs::kHeliumServicesOrigin] =
@@ -447,7 +447,7 @@
 --- /dev/null
 +++ b/components/helium_services/BUILD.gn
 @@ -0,0 +1,22 @@
-+# Copyright 2025 The Helium Authors
++# Copyright 2025 The Rasna Authors
 +# You can use, redistribute, and/or modify this source code under
 +# the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -472,7 +472,7 @@
 --- /dev/null
 +++ b/components/helium_services/helium_services_helpers.cc
 @@ -0,0 +1,67 @@
-+// Copyright 2025 The Helium Authors
++// Copyright 2025 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -542,7 +542,7 @@
 --- /dev/null
 +++ b/components/helium_services/helium_services_helpers.h
 @@ -0,0 +1,30 @@
-+// Copyright 2025 The Helium Authors
++// Copyright 2025 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -575,7 +575,7 @@
 --- /dev/null
 +++ b/components/helium_services/pref_names.h
 @@ -0,0 +1,24 @@
-+// Copyright 2025 The Helium Authors
++// Copyright 2025 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -602,12 +602,12 @@
 --- /dev/null
 +++ b/chrome/browser/resources/settings/privacy_page/changelog_proxy.ts
 @@ -0,0 +1,40 @@
-+// Copyright 2025 The Helium Authors
++// Copyright 2025 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
 +/**
-+ * @fileoverview A helper object used from the "Helium services" section
++ * @fileoverview A helper object used from the "Rasna services" section
 + * to request a changelog (if one exists).
 + */
 +
@@ -616,7 +616,7 @@
 +// clang-format on
 +
 +export interface HeliumServicesChangeHandler {
-+  // Get the pending changes to Helium services to announce
++  // Get the pending changes to Rasna services to announce
 +  // to the user.
 +  requestChangelog(): Promise<string[]>;
 +  acknowledgeChanges(ignoreAllChangelogs: boolean): void;
@@ -645,7 +645,7 @@
 --- /dev/null
 +++ b/chrome/browser/ui/webui/settings/services_schema_handler.h
 @@ -0,0 +1,36 @@
-+// Copyright 2025 The Helium Authors
++// Copyright 2025 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -684,7 +684,7 @@
 --- /dev/null
 +++ b/components/helium_services/schema.cc
 @@ -0,0 +1,40 @@
-+// Copyright 2025 The Helium Authors
++// Copyright 2025 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -716,7 +716,7 @@
 +          {
 +            1,
 +            "Automatic component updates are now available. They're managed by the same toggle that enables automatic browser updates.\n"
-+            "From now on, you'll be notified about major changes to Helium services. Even though these notifications are extremely rare, you can choose to ignore them and accept all future changes automatically."
++            "From now on, you'll be notified about major changes to Rasna services. Even though these notifications are extremely rare, you can choose to ignore them and accept all future changes automatically."
 +          }
 +      });
 +
@@ -727,7 +727,7 @@
 --- /dev/null
 +++ b/components/helium_services/schema.h
 @@ -0,0 +1,30 @@
-+// Copyright 2025 The Helium Authors
++// Copyright 2025 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -771,7 +771,7 @@
 --- /dev/null
 +++ b/chrome/browser/ui/webui/settings/services_schema_handler.cc
 @@ -0,0 +1,58 @@
-+// Copyright 2025 The Helium Authors
++// Copyright 2025 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +

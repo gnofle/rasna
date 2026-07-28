@@ -410,7 +410,7 @@
 -      info.shadow_box =
 -          has_side_panel && (has_infobar || !is_split_view || !is_force_to_top);
 -      const bool suppress_separator = info.shadow_box && is_force_to_top;
-+      // Side panel shadow overlay is disabled in Helium.
++      // Side panel shadow overlay is disabled in Rasna.
 +      info.shadow_box = false;
 +      const bool suppress_separator = false;
        info.multi_contents_separator = !suppress_separator && !has_infobar;

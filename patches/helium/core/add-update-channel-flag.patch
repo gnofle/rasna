@@ -11,7 +11,7 @@
 --- /dev/null
 +++ b/chrome/browser/channel_selection.cc
 @@ -0,0 +1,28 @@
-+// Copyright 2025 The Helium Authors
++// Copyright 2025 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -42,7 +42,7 @@
 --- /dev/null
 +++ b/chrome/browser/channel_selection.h
 @@ -0,0 +1,19 @@
-+// Copyright 2025 The Helium Authors
++// Copyright 2025 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -83,11 +83,11 @@
  #ifndef CHROME_BROWSER_HELIUM_FLAG_ENTRIES_H_
  #define CHROME_BROWSER_HELIUM_FLAG_ENTRIES_H_
 +    {helium::kChannelCommandLine,
-+     "Update channel", "Selects which update channel to use for update checking. Helium flag.",
++     "Update channel", "Selects which update channel to use for update checking. Rasna flag.",
 +     kOsAll, MULTI_VALUE_TYPE(helium::kChannelChoices)},
      {helium::kEnergySaverFrameRateCommandLine,
       "Maximum frame rate for Energy Saver",
-      "Configures the frame rate the browser is throttled to when Energy Saver is enabled. Helium flag.",
+      "Configures the frame rate the browser is throttled to when Energy Saver is enabled. Rasna flag.",
 --- a/chrome/browser/BUILD.gn
 +++ b/chrome/browser/BUILD.gn
 @@ -286,6 +286,12 @@ source_set("chained_back_navigation_trac

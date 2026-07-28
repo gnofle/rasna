@@ -4,7 +4,7 @@
    }
    s_allowlist = new PrefsUtil::TypedPrefMap();
  
-+  // Helium layout
++  // Rasna layout
 +  (*s_allowlist)[::prefs::kHeliumLayout] = settings_api::PrefType::kNumber;
 +  (*s_allowlist)[::prefs::kHeliumVerticalRightAligned] =
 +      settings_api::PrefType::kBoolean;

@@ -25,7 +25,7 @@
 +++ b/chrome/browser/ui/browser_ui_prefs.cc
 @@ -224,6 +224,8 @@ void RegisterBrowserUserPrefs(user_prefs
      registry->RegisterBooleanPref(prefs::kHeliumDisableSchemaAlerts, false);
-     registry->RegisterBooleanPref(prefs::kHeliumServicesEnabled, true);
+     registry->RegisterBooleanPref(prefs::kHeliumServicesEnabled, false);
      registry->RegisterStringPref(prefs::kHeliumServicesOrigin, "");
 +    registry->RegisterBooleanPref(prefs::kHeliumDidOnboarding, false);
 +    registry->RegisterBooleanPref(prefs::kHeliumServicesConsented, false);
@@ -160,7 +160,7 @@
 --- /dev/null
 +++ b/chrome/browser/ui/webui/onboarding/onboarding_page_ui.cc
 @@ -0,0 +1,49 @@
-+// Copyright 2025 The Helium Authors
++// Copyright 2025 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -212,7 +212,7 @@
 --- /dev/null
 +++ b/chrome/browser/ui/webui/onboarding/onboarding_page_ui.h
 @@ -0,0 +1,31 @@
-+// Copyright 2025 The Helium Authors
++// Copyright 2025 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -246,7 +246,7 @@
 --- /dev/null
 +++ b/chrome/browser/ui/webui/onboarding/onboarding_handler.cc
 @@ -0,0 +1,281 @@
-+// Copyright 2025 The Helium Authors
++// Copyright 2025 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -530,7 +530,7 @@
 --- /dev/null
 +++ b/chrome/browser/ui/webui/onboarding/onboarding_handler.h
 @@ -0,0 +1,76 @@
-+// Copyright 2025 The Helium Authors
++// Copyright 2025 The Rasna Authors
 +// You can use, redistribute, and/or modify this source code under
 +// the terms of the GPL-3.0 license that can be found in the LICENSE file.
 +
@@ -666,13 +666,13 @@
        Don't notify me again
      </message>
 +    <message name="IDS_SETTINGS_HELIUM_SERVICES_SETUP_PENDING_TEXT" desc="Description shown in services settings when user has not completed onboarding">
-+      Helium services are not available until setup is complete to ensure your privacy and consent.
++      Rasna services are not available until setup is complete to ensure your privacy and consent.
 +    </message>
 +    <message name="IDS_SETTINGS_HELIUM_SERVICES_SETUP_PENDING_BUTTON" desc="Button label directing user to complete onboarding">
 +      Complete setup
 +    </message>
-     <message name="IDS_SETTINGS_HELIUM_SERVICES_TOGGLE" desc="Global toggle for enabling/disabling of all Helium services">
-       Allow connecting to Helium services
+     <message name="IDS_SETTINGS_HELIUM_SERVICES_TOGGLE" desc="Global toggle for enabling/disabling of all Rasna services">
+       Allow connecting to Rasna services
      </message>
 --- a/chrome/browser/extensions/api/settings_private/prefs_util.cc
 +++ b/chrome/browser/extensions/api/settings_private/prefs_util.cc
@@ -763,7 +763,7 @@
        <!-- Global Media Controls specific strings -->
        <part file="gmc_strings.grdp" />
  
-+      <!-- Helium onboarding strings -->
++      <!-- Rasna onboarding strings -->
 +      <part file="../../components/helium_onboarding/helium_onboarding_strings.grdp" />
 +
        <!-- Media live preview specific strings -->
