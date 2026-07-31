@@ -21,7 +21,7 @@ IGNORE_DIRS = ['.pc', 'chromeos', 'remoting', 'ash', 'android', 'ios', 'testdata
 def replacement_sanity():
     """Sanity check to ensure replacement regexes are working as intended"""
     before_after = [
-        ('chrome://about', 'helium://about'),
+        ('chrome://about', 'rasna://about'),
         ('Chrome Root Program', 'Chrome Root Program'),
         (' Chrome  ', ' Rasna  '),
         ('Chrome Web Store', 'Chrome Web Store'),

@@ -776,7 +776,7 @@
 +    registry->RegisterBooleanPref(prefs::kHeliumBangsEnabled, false);
      registry->RegisterBooleanPref(prefs::kHeliumExtProxyEnabled, false);
      registry->RegisterStringPref(prefs::kHeliumServicesOrigin, "");
-     registry->RegisterBooleanPref(prefs::kHeliumDidOnboarding, false);
+     registry->RegisterBooleanPref(prefs::kHeliumDidOnboarding, true);
 --- a/chrome/browser/extensions/api/settings_private/prefs_util.cc
 +++ b/chrome/browser/extensions/api/settings_private/prefs_util.cc
 @@ -417,6 +417,8 @@ const PrefsUtil::TypedPrefMap& PrefsUtil

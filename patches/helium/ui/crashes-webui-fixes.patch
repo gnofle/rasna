@@ -62,7 +62,7 @@
    result.Set("manualUploads", allow_manual_uploads);
    result.Set("crashes", std::move(crash_list));
 -  result.Set("version", version_info::GetVersionNumber());
-+  result.Set("version", version_info::GetHeliumVersionNumber());
++  result.Set("version", version_info::GetRasnaVersionNumber());
    result.Set("os", base::SysInfo::OperatingSystemName() + " " +
                         base::SysInfo::OperatingSystemVersion());
    result.Set("isGoogleAccount", is_internal);

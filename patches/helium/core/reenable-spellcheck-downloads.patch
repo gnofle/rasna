@@ -124,7 +124,7 @@
      registry->RegisterBooleanPref(prefs::kHeliumExtProxyEnabled, false);
 +    registry->RegisterBooleanPref(prefs::kHeliumSpellcheckEnabled, false);
      registry->RegisterStringPref(prefs::kHeliumServicesOrigin, "");
-     registry->RegisterBooleanPref(prefs::kHeliumDidOnboarding, false);
+     registry->RegisterBooleanPref(prefs::kHeliumDidOnboarding, true);
      registry->RegisterBooleanPref(prefs::kHeliumServicesConsented, false);
 --- a/chrome/browser/resources/settings/privacy_page/services_page.html
 +++ b/chrome/browser/resources/settings/privacy_page/services_page.html

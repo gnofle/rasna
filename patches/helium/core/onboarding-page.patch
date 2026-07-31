@@ -27,7 +27,7 @@
      registry->RegisterBooleanPref(prefs::kHeliumDisableSchemaAlerts, false);
      registry->RegisterBooleanPref(prefs::kHeliumServicesEnabled, false);
      registry->RegisterStringPref(prefs::kHeliumServicesOrigin, "");
-+    registry->RegisterBooleanPref(prefs::kHeliumDidOnboarding, false);
++    registry->RegisterBooleanPref(prefs::kHeliumDidOnboarding, true);
 +    registry->RegisterBooleanPref(prefs::kHeliumServicesConsented, false);
    }
  

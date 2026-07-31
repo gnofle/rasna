@@ -69,7 +69,7 @@
 --- a/chrome/browser/ui/browser_ui_prefs.cc
 +++ b/chrome/browser/ui/browser_ui_prefs.cc
 @@ -234,6 +234,7 @@ void RegisterBrowserUserPrefs(user_prefs
-     registry->RegisterBooleanPref(prefs::kHeliumDidOnboarding, false);
+     registry->RegisterBooleanPref(prefs::kHeliumDidOnboarding, true);
      registry->RegisterBooleanPref(prefs::kHeliumServicesConsented, false);
      registry->RegisterBooleanPref(prefs::kHeliumUpdateFetchingEnabled, false);
 +    registry->RegisterBooleanPref(prefs::kHeliumUBlockAssetsEnabled, false);

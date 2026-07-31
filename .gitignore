@@ -25,3 +25,5 @@ resources/branding_backup/
 
 # File di backup locali (.bak)
 *.bak
+patches_backup_onboarding_fix/
+.gcs_entries
