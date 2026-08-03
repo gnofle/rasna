@@ -1,0 +1,11 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Rasna
+Upstream-Contact: Gnofle <software@gnofle.it>
+Source: https://www.gnofle.it/software/Rasna
+
+Files: *
+Copyright: 2026 ABGnofle Software
+License: GPL-3.0
+ Basato su Helium (https://github.com/imputnet/helium),
+ a sua volta fork di ungoogled-chromium/Chromium.
+ Vedi il file LICENSE nel repository per il testo completo.

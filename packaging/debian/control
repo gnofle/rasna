@@ -1,0 +1,21 @@
+Source: rasna
+Section: web
+Priority: optional
+Maintainer: Gnofle <software@gnofle.it>
+Build-Depends: debhelper (>= 12)
+Standards-Version: 4.5.0
+Homepage: https://www.gnofle.it/software/Rasna
+
+Package: rasna
+Architecture: amd64
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ libnspr4, libnss3, libatk-bridge2.0-0, libcups2,
+ libxkbcommon0, libatspi2.0-0, libx11-6, libxcomposite1,
+ libxdamage1, libxfixes3, libxrandr2, libgbm1, libpango-1.0-0,
+ libcairo2, libasound2
+Description: Rasna Browser - browser basato su Helium/Chromium
+ Rasna è un browser web basato su Helium (fork di Chromium via
+ ungoogled-chromium), con motore di ricerca DuckDuckGo come predefinito
+ e servizi di rete esterni disattivati di default per maggiore privacy.
+ uBlock Origin è integrato e configurato per aggiornare le liste filtri
+ direttamente dalle fonti pubbliche ufficiali.

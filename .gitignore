@@ -27,3 +27,14 @@ resources/branding_backup/
 *.bak
 patches_backup_onboarding_fix/
 .gcs_entries
+
+# Artefatti di build del pacchetto Debian (rigenerati da dpkg-buildpackage)
+packaging/debian/rasna/
+packaging/debian/.debhelper/
+packaging/debian/debhelper-build-stamp
+packaging/debian/files
+packaging/debian/*.substvars
+*.deb
+*.buildinfo
+*.changes
+patches_backup_component_updates.patch

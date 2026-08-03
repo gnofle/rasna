@@ -1,0 +1,10 @@
+rasna (1.0.0-1) unstable; urgency=medium
+
+  * Prima release di Rasna Browser, fork di Helium/Chromium.
+  * Motore di ricerca predefinito: DuckDuckGo.
+  * Servizi di rete esterni (aggiornamenti, filtri uBlock, spellcheck)
+    disattivati di default; uBlock Origin aggiorna dalle fonti pubbliche
+    ufficiali senza dipendere da server di terzi.
+  * Lingue incluse: italiano, inglese.
+
+ -- Gnofle <software@gnofle.it>  Sun, 02 Aug 2026 08:30:00 +0200

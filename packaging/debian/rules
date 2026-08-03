@@ -1,0 +1,66 @@
+#!/usr/bin/make -f
+
+RASNA_SRC = /media/gnofle/Dati/temp/rasna_src/out/Release
+RASNA_ROOT = /media/gnofle/Dati/temp/rasna
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	@echo "Build già effettuato esternamente, salto dh_auto_build"
+
+override_dh_auto_install:
+	# Binario principale
+	install -Dm755 $(RASNA_SRC)/chrome debian/rasna/opt/rasna/rasna
+
+	# Risorse .pak e dati Unicode
+	install -Dm644 $(RASNA_SRC)/chrome_100_percent.pak debian/rasna/opt/rasna/chrome_100_percent.pak
+	install -Dm644 $(RASNA_SRC)/chrome_200_percent.pak debian/rasna/opt/rasna/chrome_200_percent.pak
+	install -Dm644 $(RASNA_SRC)/resources.pak debian/rasna/opt/rasna/resources.pak
+	install -Dm644 $(RASNA_SRC)/icudtl.dat debian/rasna/opt/rasna/icudtl.dat
+	install -Dm644 $(RASNA_SRC)/v8_context_snapshot.bin debian/rasna/opt/rasna/v8_context_snapshot.bin
+	install -Dm755 $(RASNA_SRC)/chrome_crashpad_handler debian/rasna/opt/rasna/chrome_crashpad_handler
+	install -Dm755 $(RASNA_SRC)/libvulkan.so.1 debian/rasna/opt/rasna/libvulkan.so.1
+	install -Dm644 $(RASNA_SRC)/snapshot_blob.bin debian/rasna/opt/rasna/snapshot_blob.bin
+
+	# SwiftShader (fallback rendering software)
+	install -Dm755 $(RASNA_SRC)/libvk_swiftshader.so debian/rasna/opt/rasna/libvk_swiftshader.so
+	install -Dm644 $(RASNA_SRC)/vk_swiftshader_icd.json debian/rasna/opt/rasna/vk_swiftshader_icd.json
+
+	# Lingue: solo italiano e inglese
+	mkdir -p debian/rasna/opt/rasna/locales
+	for f in it it_FEMININE it_MASCULINE it_NEUTER \
+	         en-US en-US_FEMININE en-US_MASCULINE en-US_NEUTER \
+	         en-GB; do \
+		install -Dm644 $(RASNA_SRC)/locales/$$f.pak debian/rasna/opt/rasna/locales/$$f.pak; \
+		if [ -f $(RASNA_SRC)/locales/$$f.pak.info ]; then \
+			install -Dm644 $(RASNA_SRC)/locales/$$f.pak.info debian/rasna/opt/rasna/locales/$$f.pak.info; \
+		fi; \
+	done
+
+	# Preferenze iniziali (homepage DuckDuckGo)
+	install -Dm644 $(RASNA_ROOT)/packaging/initial_preferences debian/rasna/opt/rasna/master_preferences
+
+	# Desktop entry
+	install -Dm644 $(RASNA_ROOT)/packaging/rasna.desktop debian/rasna/usr/share/applications/rasna.desktop
+
+	# Icone (tutte generate dal vero logo Rasna, non dalla R minimalista delle favicon)
+	install -Dm644 $(RASNA_ROOT)/logo/app_icons/rasna_16.png debian/rasna/usr/share/icons/hicolor/16x16/apps/rasna.png
+	install -Dm644 $(RASNA_ROOT)/logo/app_icons/rasna_22.png debian/rasna/usr/share/icons/hicolor/22x22/apps/rasna.png
+	install -Dm644 $(RASNA_ROOT)/logo/app_icons/rasna_24.png debian/rasna/usr/share/icons/hicolor/24x24/apps/rasna.png
+	install -Dm644 $(RASNA_ROOT)/logo/app_icons/rasna_32.png debian/rasna/usr/share/icons/hicolor/32x32/apps/rasna.png
+	install -Dm644 $(RASNA_ROOT)/logo/app_icons/rasna_48.png debian/rasna/usr/share/icons/hicolor/48x48/apps/rasna.png
+	install -Dm644 $(RASNA_ROOT)/logo/app_icons/rasna_64.png debian/rasna/usr/share/icons/hicolor/64x64/apps/rasna.png
+	install -Dm644 $(RASNA_ROOT)/logo/app_icons/rasna_128.png debian/rasna/usr/share/icons/hicolor/128x128/apps/rasna.png
+	install -Dm644 $(RASNA_ROOT)/logo/app_icons/rasna_256.png debian/rasna/usr/share/icons/hicolor/256x256/apps/rasna.png
+	install -Dm644 $(RASNA_ROOT)/logo/app_icons/rasna_512.png debian/rasna/usr/share/icons/hicolor/512x512/apps/rasna.png
+
+	# Symlink in /usr/bin per lancio da terminale/menu
+	mkdir -p debian/rasna/usr/bin
+	ln -sf /opt/rasna/rasna debian/rasna/usr/bin/rasna
+
+override_dh_strip:
+	@echo "Skip dh_strip: binari già ottimizzati in fase di build GN (symbol_level=0)"
+
+override_dh_dwz:
+	@echo "Skip dh_dwz: nessuna info di debug da processare"

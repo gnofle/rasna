@@ -40,11 +40,12 @@
  }
  
 +GURL GetComponentUpdateURL(const PrefService* prefs) {
-+    if (!prefs || !ShouldAccessComponentUpdateService(*prefs)) {
-+        return GetDummyURL();
-+    }
-+
-+    return GetServicesBaseURL(*prefs).Resolve("/com");
++    // CRLSet e WidevineCdm sono gli unici componenti ammessi (vedi
++    // kAllowedComponents in component_installer.cc): entrambi devono
++    // provenire direttamente dai server ufficiali Google per essere
++    // validi (Widevine in particolare richiede una firma Google
++    // verificabile). Bypassiamo quindi il proxy Rasna per questo caso.
++    return GURL("https://update.googleapis.com/service/update2/json");
 +}
 +
  GURL GetUBlockAssetsURL(const PrefService& prefs) {
